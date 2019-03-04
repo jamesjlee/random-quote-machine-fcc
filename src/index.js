@@ -1,8 +1,13 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faIgloo } from '@fortawesome/free-solid-svg-icons'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+library.add(faIgloo)
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

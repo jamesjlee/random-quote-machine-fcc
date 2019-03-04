@@ -1,0 +1,23 @@
+.QuoteBoxRow {
+  min-height: 100%;
+  min-height: 100vh;
+  align-items: center;
+  display: flex;
+}
+
+.Quote {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#text {
+  font-family: 'arial-black';
+  font-size: 50px;
+}
+
+#author {
+  font-family: 'arial-black';
+  font-size: 25px;
+}

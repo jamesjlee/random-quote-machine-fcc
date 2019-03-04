@@ -1,26 +1,40 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import QuoteBox from "./components/QuoteBox";
+import { randQuoteFetch } from "./utils/QuoteFetch";
 
 class App extends Component {
+  state = {
+    text: "",
+    author: ""
+  };
+
+  handleNewQuoteClick = async () => {
+    const quote = await randQuoteFetch();
+    this.setState({
+      text: quote[0].content,
+      author: quote[0].title
+    });
+  };
+
+  handleTweetClick = () => {};
+
+  async componentDidMount() {
+    const quote = await randQuoteFetch();
+    this.setState({
+      text: quote[0].content,
+      author: quote[0].title
+    });
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <QuoteBox
+        text={this.state.text}
+        author={this.state.author}
+        handleNewQuoteClick={this.handleNewQuoteClick}
+        handleTweetClick={this.handleTweetClick}
+      />
     );
   }
 }
